@@ -1,7 +1,8 @@
 <template>
   <Navbar />
   <Input />
-  <CountryList />
+  <input id="inputEl" v-model="search" type="text" name="search_country" class="bg-darkBlue text-white w-5/6 rounded h-14 m-auto mt-5" placeholder="Search for a country" />      
+  <CountryList :search="search" />
 </template>
 
 <script>
@@ -16,5 +17,12 @@ export default {
     Input,
     CountryList,
   },
+
+
+    data(){
+        return {
+            search: "",
+        }   
+    }
 };
 </script>
