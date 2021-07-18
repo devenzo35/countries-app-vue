@@ -1,17 +1,16 @@
 <template lang="">
     <div class="mt-10 flex flex-col gap-16 md:flex-row md:flex-wrap">
-        <li class="bg-darkBlue shadow-lg w-4/6 m-auto rounded-sm list-none mb-10 md:w-2/12" v-bind:key="country.alpha2Code" v-for="country in filteredCountries">
-            <img class="rounded-t-md" :src="country.flag" />
-            <section class="w-10/12 flex flex-col gap-2 m-auto">
-            <span class="font-bold text-xl">{{country.name}}</span>
-            <p>Population: {{country.population}}</p>
-            <p>Region: {{country.region}}</p>
-            <p>Capital: {{country.capital}}</p>
-            </section>
-        </li>
+        <section to="/country" class="bg-darkBlue shadow-lg w-4/6 m-auto rounded-sm list-none mb-10 md:w-2/12" v-bind:key="country.alpha2Code" v-for="country in filteredCountries">
+        <router-link :to="{ name: 'country', params: { countryName: country.name } }" >
+            <CountryInfo  :country="country" />
+        </router-link >
+        </section>
     </div>
 </template>
 <script>
+
+import CountryInfo from '../views/CountryInfo.vue';
+
 export default {
     name: "CountryList",
     props: {
@@ -21,6 +20,9 @@ export default {
         region: {
             type: String,
         },
+    },
+    components: {
+        CountryInfo
     },
     data(){
         return {
@@ -57,3 +59,5 @@ export default {
     }
 }
 </script>
+
+
