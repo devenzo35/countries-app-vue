@@ -1,14 +1,24 @@
 <template lang="en">
-    <nav class="bg-darkBlue text-white flex items-center justify-between font-bold p-2 h-20 w-full">
+    <nav @click="passEvent" class="bg-white dark dark:bg-darkBlue dark:text-white text-xs flex items-center justify-between font-bold p-2 px-4 h-20 w-full shadow-md">
         Where in the world?
-        <button>Dark mode</button>
+        <button v-if="isDark" ><i class="fas fa-moon"></i> Dark mode</button>
+        <button v-else="isDark" ><i class="far fa-moon"></i> Light mode</button>
     </nav>
 </template>
 <script>
 export default {
-    
-}
+  name: "Navbar",
+  data() {
+    return {
+      isDark: false,
+    };
+  },
+  methods: {
+    passEvent() {
+      this.isDark = !this.isDark;
+      this.$emit("changeTheme", this.isDark);
+    },
+  },
+};
 </script>
-<style lang="">
-    
-</style>
+<style lang=""></style>

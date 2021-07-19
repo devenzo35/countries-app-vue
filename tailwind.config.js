@@ -1,6 +1,6 @@
 module.exports = {
   purge: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: "class",
   theme: {
     backgroundColor: (theme) => ({
       ...theme("colors"),
@@ -11,7 +11,10 @@ module.exports = {
       veryLight: "hsl(0, 0%, 98%)",
       White: "hsl(0, 0%, 100%)",
     }),
-    extend: {},
+    extend: {
+      backgroundColor: ["hover", "responsive", " focus", "dark", "dark-hover"],
+      textColor: ["hover", "responsive", "focus", "dark", "dark-hover"],
+    },
   },
   variants: {
     extend: {},
