@@ -25,5 +25,8 @@ export default {
       this.theme = theme;
     },
   },
+  mounted() {
+    this.theme = JSON.parse(localStorage.getItem("theme"));
+  },
 };
 </script>

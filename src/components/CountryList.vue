@@ -1,8 +1,10 @@
 <template lang="">
-  <div class="mt-10 flex flex-col gap-16 md:flex-row md:flex-wrap">
+  <div
+    class="mt-10 flex flex-col md:flex-row md:flex-wrap lg:justify-between lg:px-16"
+  >
     <section
       to="/country"
-      class="bg-white dark dark:bg-darkBlue dark:text-white shadow-lg w-10/12 m-auto rounded-sm list-none pb-10 md:w-2/12"
+      class="bg-white dark dark:bg-darkBlue dark:text-white shadow-xl w-10/12 m-auto mb-10 lg:m-0 lg:mr-1 lg:mb-14 rounded-sm list-none pb-10 lg:w-1/5"
       v-bind:key="country.alpha2Code"
       v-for="country in filteredCountries"
     >
